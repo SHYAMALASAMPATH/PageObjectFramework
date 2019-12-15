@@ -29,11 +29,7 @@ public class BaseEngin  {
 	static private ExcelReader excelData ;
 	static private PropertiesUtilities configData,objRep;;
 	
-	/**
-	 * @param browser 
-	 * The annotated method will be run before all tests in this suite
-	 * @throws IOException 
-	 */
+	
 	@Parameters("browser")
 	@BeforeSuite
 	static public void openBrowser(@Optional("chrome")String browser) throws IOException {
