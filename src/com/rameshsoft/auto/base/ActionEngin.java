@@ -1,19 +1,27 @@
 package com.rameshsoft.auto.base;
 
+import java.net.Inet4Address;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+import java.time.Duration;
 import java.util.List;
-
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+ 
 abstract public class ActionEngin extends BaseEngin{
 
 	private static WebElement webelement;
 	private static List<WebElement> webelements;
 	
 	public String enterURL(String url, String how) {
-		
 		if(how.equals("driver")) {
 			getDriver().get(url);
 		}else if(how.equalsIgnoreCase("navigate")) {
@@ -132,8 +140,14 @@ abstract public class ActionEngin extends BaseEngin{
 	public static void mouseHoverActions(String locMech,String locValue ) {
 		 Actions actions = new  Actions(getDriver());
 		webelement = identifyElement(locMech, locValue);
-		actions.moveToElement(webelement);	
+		actions.moveToElement(webelement).perform();;	
 	}
+	
+	public static void mouseHoverActions(WebElement element ) {
+		 Actions actions = new  Actions(getDriver());
+		actions.moveToElement(element).perform();;	
+	}
+	
 	
 	public static void click(String locMech,String locValue) {
 		 webelement = identifyElement(locMech, locValue);
@@ -147,7 +161,8 @@ abstract public class ActionEngin extends BaseEngin{
 		getDriver().quit();
 	}
 	
-	private static Boolean checkElementVisibility(WebElement webelement) {
+	
+	public static boolean checkElementVisibility(WebElement webelement) {
 		Boolean status = (webelement.isDisplayed()&& webelement.isEnabled())?true:false;
 		return status;
 	}
@@ -159,5 +174,82 @@ abstract public class ActionEngin extends BaseEngin{
 		}
 		return status;
 	}
+	
+	public void getSystemHost(){
+		
+		try {
+			InetAddress ia = Inet4Address.getLocalHost();
+		
+			System.out.println(ia.getHostName());
+			System.out.println(ia.getHostAddress());
+			System.out.println(System.getProperty("os.name"));
+			System.out.println(System.getProperty("os.arch"));
+			
+		} catch (UnknownHostException e) {
+			
+			e.printStackTrace();
+		}
+		
+	}
+	
+	public static boolean checkInURL(String valueToCheck) {
+		boolean isValFound = false;
+		
+		try{
+			
+			String curURL = getDriver().getCurrentUrl();
+			
+			isValFound = curURL.toLowerCase().contains(valueToCheck.toLowerCase());
+			
+		} catch (WebDriverException wde){
+			System.out.println("Error while verifying the url. Exception message captured is :  " + wde.getMessage());
+			Assert.assertTrue(false, "Unable to verify the url as webdriver exception found.");
+		}
+		
+		return isValFound;
+	}
+	
+	 public static WebElement waitForElement(By by,int timeToWait){
+    	 WebElement element = null;
+    	 try{
+    		 WebDriverWait wait = new WebDriverWait(getDriver(), timeToWait);
+    		 wait.pollingEvery(Duration.ofMillis(200));
+    		 wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(by));
+    		 
+    	 }catch(Exception e ){
+    		 System.out.println("Element :"+by.toString()+" is not found even after waiting for" +timeToWait+ "secands:");
+    		 
+    	 }
+    	 
+    	 return element;
+     }
+	
 
+	public static void  checkErrorMessage(By by, String errorMessage) {
+		
+		if(errorMessage.isEmpty()) {
+			WebElement errorElement = waitForElement(by, 1);
+			
+			if(errorElement==null) {
+				System.out.println("passed: error message is not populated.");
+			}else {
+				System.out.println("failed: error message is populated.");
+			}
+		}else {			
+			WebElement errorElement = waitForElement(by, 1);			
+			if(errorElement==null) {
+				System.out.println("failed : is not populated");
+			}else {
+				String actualMessage = errorElement.getText();
+				if(actualMessage.trim().equals(errorMessage)) {
+					System.out.println("passed:error message is populated .");
+				}else {
+					System.out.println("failed: error message is populated.");
+					Assert.assertEquals(actualMessage, errorMessage);
+				}
+			}
+		}
+		
+		
+	}	
  }

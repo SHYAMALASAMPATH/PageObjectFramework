@@ -9,6 +9,6 @@ public interface FilePaths {
 	String txtPath   = System.getProperty("user.dir")+"";
 	String csvPath   = System.getProperty("user.dir")+"";
 	
-	String reportPath = System.getProperty("user.dir")+"\\Reports\\report.html";
+	String reportPath = System.getProperty("user.dir")+"\\Reports\\Results.html";
 	
 }

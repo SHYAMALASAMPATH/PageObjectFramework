@@ -5,9 +5,11 @@
     <classes>
       <class name="com.rameshsoft.auto.scripts.GmailTest">
         <methods>
-          <include name="gmailLoginTest"/>
+          <include name="startRepo"/>
           <include name="openBrowser"/>
-          <include name="beforeMethod"/>
+          <include name="initextnt"/>
+          <include name="endReport"/>
+          <include name="FbTest"/>
         </methods>
       </class> <!-- com.rameshsoft.auto.scripts.GmailTest -->
     </classes>

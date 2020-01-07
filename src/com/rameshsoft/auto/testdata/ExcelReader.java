@@ -21,7 +21,6 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 
 public class ExcelReader {
 	
-	private String filePath;
 	private FileInputStream fip;
 	private Workbook wb;
 	private Sheet sheet;
@@ -34,7 +33,6 @@ public class ExcelReader {
 		
 		fip = new FileInputStream(filePath);
 		wb= WorkbookFactory.create(fip);
-		this.filePath=filePath;
 	}
 	
 	public Sheet getSheetFromWorkbook(String sheetName) {
@@ -78,17 +76,21 @@ public class ExcelReader {
 		sheet = getSheetFromWorkbook(sheetName);
 		for(int rNum = 0;rNum<sheet.getLastRowNum();rNum++) {
 			row = sheet.getRow(rNum);
-			for(int colNum=0;colNum<row.getLastCellNum();colNum++) {
-				cell = row.getCell(colNum);
-				if (cell.getCellType()==CellType.STRING) {
-					cellValue = cell.getStringCellValue();
-				}else if(cell.getCellType()==CellType.NUMERIC) {
-					cellValue = cell.getNumericCellValue()+"";
-				}else if(cell.getCellType()==CellType.BOOLEAN) {
-					cellValue = cell.getBooleanCellValue()+"";
-				}
+			if(row!=null) {
+				for(int colNum=0;colNum<row.getLastCellNum();colNum++) {
+					cell = row.getCell(colNum);
+					if(cell!=null) {
+						if (cell.getCellType()==CellType.STRING) {
+							cellValue = cell.getStringCellValue();
+						}else if(cell.getCellType()==CellType.NUMERIC) {
+							cellValue = cell.getNumericCellValue()+"";
+						}else if(cell.getCellType()==CellType.BOOLEAN) {
+							cellValue = cell.getBooleanCellValue()+"";
+						}
+					}
+				}	
 			}
-		}
+		}	
 		dataCell.add(cellValue);
 		return dataCell;
 	 }
@@ -117,8 +119,7 @@ public class ExcelReader {
 				}	
 			  }
 			}
-			
-		 
+
 		return cellData;
 	}
 	
@@ -160,8 +161,8 @@ public class ExcelReader {
 		sheet = getSheetFromWorkbook(sheetName);
 		row = sheet.getRow(rowNum);
 		if(row!=null) {
-			for(int i=0;i<row.getLastCellNum();i++){
-				cell = row.getCell(i);
+			for(int rNum=0;rNum<row.getLastCellNum();rNum++){
+				cell = row.getCell(rNum);
 				if(cell!=null) {
 					if (cell.getCellType() == CellType.NUMERIC) {
 						cellValue = cell.getNumericCellValue()+"";
@@ -193,21 +194,21 @@ public class ExcelReader {
 	    		break;
 	    	}
 	    	rowMatch++;
-	    	
 	   }
 		return tcData;
    }
-	public static void main(String[] args) throws EncryptedDocumentException, IOException {
+	/*public static void main(String[] args) throws EncryptedDocumentException, IOException {
 		ExcelReader ex = new ExcelReader
 				 ("G:\\SELENIUM\\new selenium\\Framework7AMP\\TestData\\Data.xlsx");
 		
-		/*List<String> list  = ex.getTcNames("Book");
+		List<String> list  = ex.getTcNames("Book");
 		System.out.println(list);
-		*/
-		System.out.println(ex.getTcData("PRUDVI2", "gmailTest"));
 		
+		//System.out.println(ex.getTcData("PRUDVI2", "gmailTest"));
+		List headers = ex.getHeaders("PRUDVI2");
+		System.out.println(headers);
 	}
-	
+	*/
 	
 
 }

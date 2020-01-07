@@ -105,11 +105,12 @@ public class TextUtilities {
 				String listData = (String) obj; 
 				bufferedWriter.write(listData);
 				bufferedWriter.newLine();
-				bufferedWriter.flush();
 			}
+			
 		}else {
 			System.out.println("BW IS POINTING TO NULL");
 		}
+		bufferedWriter.flush();
 		return data;
 	}
 	
@@ -120,12 +121,13 @@ public class TextUtilities {
 				String listData = (String) obj; 
 				bufferedWriter.write(listData);
 				bufferedWriter.newLine();
-				bufferedWriter.flush();
+				
 			
 			}
 		}else {
 			System.out.println("BW IS POINTING TO NULL");
 		}
+		bufferedWriter.flush();
 		return data;
 	}
 	
@@ -142,13 +144,15 @@ public class TextUtilities {
 	     List<String> totalFileData = new ArrayList<String>();
 			while(bufferedReader.ready()){
 				totalFileData.add(bufferedReader.readLine());
-			}
+			  }
+			//System.out.println(totalFileData);
 			return totalFileData;
 	}
 	
 	public Set<String> getTotalDataUnique() throws IOException {
 		List<String> data = getTotalData();
 		Set<String> uniqueData = new LinkedHashSet<String>(data);
+		//System.out.println(uniqueData);
 		return uniqueData;
 		
 	}
@@ -165,11 +169,45 @@ public class TextUtilities {
    
 	public static void main(String[] args) throws IOException {
 		
-		TextUtilities tu = new TextUtilities
-				       ("G:\\SELENIUM\\new selenium\\Framework7AMP\\sele.txt");
+		TextUtilities t = new TextUtilities
+				       ("G:\\SELENIUM\\new selenium\\Framework7AMP\\selez.txt");
+		ArrayList<String> a = new ArrayList<String>();
+		a.add("hello");
+		a.add("web");
+		a.add("tagname");
+		a.add("tagname");
+		a.add("web");
+		t.writeData(a);
+		
+		System.out.println(t.getTotalDataUnique());
+		t.writeData(a);
+		System.out.println(t.getTotalData());
 		
 		
-	}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		/*a.add("10");
+		a.add("25");
+		a.add("26");
+		
+		t.writeData(a);
+	
+		
+		System.out.println(t.getTotalData().toString());
+		//System.out.println(t.getTotalDataUnique().toString());
+*/	}
 
 
 	

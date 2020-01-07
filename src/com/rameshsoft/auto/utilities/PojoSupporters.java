@@ -14,7 +14,7 @@ public class PojoSupporters {
 		 poConfiData = new PropertiesUtilities(FilePaths.confPath);
 	return 	poConfiData;
 	}
-	
+
 	public static ExcelReader getExcelData() throws IOException {
 		 excelReaderPath = new ExcelReader(FilePaths.excelPath);
 	return 	excelReaderPath;
@@ -24,4 +24,5 @@ public class PojoSupporters {
 		 objRep = new PropertiesUtilities(FilePaths.orPath);
 	return 	objRep;
 	}
+	
 }

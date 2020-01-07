@@ -67,5 +67,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="/AA/LIbraries/extentreports-4.0.9.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

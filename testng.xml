@@ -2,20 +2,18 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite">
 <parameter name="browser" value="chrome"></parameter>
-
+<listeners>
+<listener class-name="com.rameshsoft.auto.listeners.ScreenshotListener">
+</listener>
+</listeners> 
   <test thread-count="5" name="Test">
     <classes>
-      <class name="com.rameshsoft.auto.scripts.GmailTest"/>
+      <class name="com.rameshsoft.auto.scripts.GmailTest">
+      <methods>
+      <!-- <include name="gmailLoginTest"/> -->
+      <include name="FbTest"/>
+      </methods>
+      </class>
     </classes>
   </test> <!-- Test -->
-  
-  <parameter name="browser" value="firfox"></parameter>
-  <test thread-count="5" name="Test">
-    <classes>
-      <class name="com.rameshsoft.auto.scripts.GmailTest"/>
-    </classes>
-  </test> <!-- Test -->
-  
-  
-  
 </suite> <!-- Suite -->

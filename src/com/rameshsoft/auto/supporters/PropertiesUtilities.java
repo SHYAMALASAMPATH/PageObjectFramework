@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 import java.util.Properties;
 import java.util.Set;
 
@@ -31,6 +32,10 @@ public class PropertiesUtilities {
 	
 	public String getPropertyValue(String key,String defaultValue) {
 		 value = prop.getProperty(key, defaultValue);
+		 Optional optional =Optional.ofNullable(value);
+			if(optional.isPresent()) {
+				System.out.println("Value is present :"+value);
+			}
 		return value;
 	  }
 	
@@ -40,6 +45,10 @@ public class PropertiesUtilities {
 		  }
 	public String getPropertyValue(Object key,Object defaultValue) {
 		value=(String) prop.getOrDefault(key, defaultValue);
+		Optional optional =Optional.ofNullable(value);
+		if(optional.isPresent()) {
+			System.out.println("Value is present :"+value);
+		}
 		return  value;
 	  }	
 	
@@ -53,6 +62,16 @@ public class PropertiesUtilities {
 		}
 		return UniqKey;
 	  }
+	 
+	 public List<String> getAllKeys1(){
+	             Set<Object> key =  prop.keySet();
+			  List<String> UniqKey = new ArrayList<String>();
+			   for(Object obj : key) {
+			      String keys = (String) obj;
+			     	UniqKey.add(keys);
+			}
+			return UniqKey;
+		  }
 	
 	public List<String> getAllkeyValue(){
 		Set<String> keys = getAllKeys();
@@ -100,7 +119,13 @@ public class PropertiesUtilities {
 		return propData;
 	}
 
-	
+	public static void main(String[] args) throws IOException {
+		
+		PropertiesUtilities pu = new PropertiesUtilities 
+				 ("G:\\SELENIUM\\new selenium\\Framework7AMP\\src\\com\\rameshsoft\\auto\\objectrepository\\OR.properties");
+	           String str = pu.getPropertyValue("un_name", "value is null");
+	           System.out.println(str);
+	}
 	
 	
 

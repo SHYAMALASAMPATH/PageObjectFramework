@@ -2,24 +2,18 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
   <parameter name="browser" value="chrome"/>
+  <listeners>
+    <listener class-name="com.rameshsoft.auto.listeners.ScreenshotListener"/>
+  </listeners>
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="com.rameshsoft.auto.scripts.FBTest">
-        <methods>
-          <include name="FBloginTest"/>
-          <include name="closeBrowser"/>
-          <include name="openBrowser"/>
-          <include name="beforeMethod"/>
-          <include name="aftermethod"/>
-        </methods>
-      </class> <!-- com.rameshsoft.auto.scripts.FBTest -->
       <class name="com.rameshsoft.auto.scripts.GmailTest">
         <methods>
-          <include name="gmailLoginTest"/>
-          <include name="closeBrowser"/>
+          <include name="startRepo"/>
           <include name="openBrowser"/>
-          <include name="beforeMethod"/>
-          <include name="aftermethod"/>
+          <include name="initextnt"/>
+          <include name="endReport"/>
+          <include name="FbTest"/>
         </methods>
       </class> <!-- com.rameshsoft.auto.scripts.GmailTest -->
     </classes>
