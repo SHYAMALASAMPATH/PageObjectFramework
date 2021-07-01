@@ -51,7 +51,11 @@
 	<classpathentry kind="lib" path="C:/Users/USER/Desktop/JARS SELENIUM/selenium jars and windows softwares/client-combined-3.141.59.jar"/>
 	<classpathentry kind="lib" path="C:/Users/USER/Desktop/JARS SELENIUM/selenium jars and windows softwares/client-combined-3.141.59-sources.jar"/>
 	<classpathentry kind="lib" path="C:/Users/USER/Desktop/JARS SELENIUM/selenium jars and windows softwares/selenium-server-standalone-3.141.59.jar"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.8.0_192"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-10">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/USER/Desktop/JARS SELENIUM/extentreports-3.0.0.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
