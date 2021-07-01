@@ -2,3 +2,6 @@ hello sampath
 hai rajesh
 hai srikanth
 hai mitra
+A
+B
+C
