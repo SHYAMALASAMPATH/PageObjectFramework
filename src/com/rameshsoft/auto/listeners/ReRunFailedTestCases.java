@@ -6,7 +6,7 @@ import com.rameshsoft.auto.base.BaseEngin;
 import com.relevantcodes.extentreports.LogStatus;
 
 public class ReRunFailedTestCases implements IRetryAnalyzer {
-
+ 
 	int retryCount = 0;
 	int maxRetryCount=3;
 	
@@ -16,7 +16,8 @@ public class ReRunFailedTestCases implements IRetryAnalyzer {
 		if(ITestResult.FAILURE==result.getStatus()&&retryCount<=maxRetryCount) {
 			try {
 				Thread.sleep(5000);
-				BaseEngin.getExtentTest().log(LogStatus.INFO, "Count is :"+retryCount+ "Executing TC is :"+result.getName());
+BaseEngin.getExtentTest().log
+            (LogStatus.INFO, "Count is :"+retryCount+ "Executing TC is :"+result.getName());
 				retryCount++;
 			} catch (InterruptedException e) {
 				e.printStackTrace();

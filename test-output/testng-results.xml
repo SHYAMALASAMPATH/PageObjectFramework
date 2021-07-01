@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2019-12-31T06:26:27Z" name="Suite" finished-at="2019-12-31T06:26:33Z" duration-ms="5357">
+  <suite name="Default suite" duration-ms="7956" started-at="2020-08-16T15:47:23Z" finished-at="2020-08-16T15:47:31Z">
     <groups>
     </groups>
-    <test started-at="2019-12-31T06:26:27Z" name="Test" finished-at="2019-12-31T06:26:33Z" duration-ms="5357">
+    <test name="Default test" duration-ms="7956" started-at="2020-08-16T15:47:23Z" finished-at="2020-08-16T15:47:31Z">
       <class name="com.rameshsoft.auto.scripts.GmailTest">
-        <test-method is-config="true" signature="openBrowser(java.lang.String)[pri:0, instance:com.rameshsoft.auto.scripts.GmailTest@55536d9e]" started-at="2019-12-31T06:26:16Z" name="openBrowser" finished-at="2019-12-31T06:26:27Z" duration-ms="11105" status="PASS">
+        <test-method status="PASS" signature="openBrowser(java.lang.String)[pri:0, instance:com.rameshsoft.auto.scripts.GmailTest@3632be31]" name="openBrowser" is-config="true" duration-ms="7023" started-at="2020-08-16T15:47:16Z" finished-at="2020-08-16T15:47:23Z">
           <params>
             <param index="0">
               <value>
@@ -18,30 +18,30 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openBrowser -->
-        <test-method is-config="true" signature="initextnt()[pri:0, instance:com.rameshsoft.auto.scripts.GmailTest@55536d9e]" started-at="2019-12-31T06:26:27Z" name="initextnt" finished-at="2019-12-31T06:26:28Z" duration-ms="546" status="PASS">
+        <test-method status="PASS" signature="initExtentReports()[pri:0, instance:com.rameshsoft.auto.scripts.GmailTest@3632be31]" name="initExtentReports" is-config="true" duration-ms="182" started-at="2020-08-16T15:47:23Z" finished-at="2020-08-16T15:47:23Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- initextnt -->
-        <test-method is-config="true" signature="startRepo(java.lang.reflect.Method)[pri:0, instance:com.rameshsoft.auto.scripts.GmailTest@55536d9e]" started-at="2019-12-31T06:26:28Z" name="startRepo" finished-at="2019-12-31T06:26:28Z" duration-ms="0" status="PASS">
+        </test-method> <!-- initExtentReports -->
+        <test-method status="PASS" signature="startRepo(java.lang.reflect.Method)[pri:0, instance:com.rameshsoft.auto.scripts.GmailTest@3632be31]" name="startRepo" is-config="true" duration-ms="3" started-at="2020-08-16T15:47:23Z" finished-at="2020-08-16T15:47:23Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.rameshsoft.auto.scripts.GmailTest.FbTest()]]>
+                <![CDATA[public static void com.rameshsoft.auto.scripts.GmailTest.Testcase1()]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- startRepo -->
-        <test-method signature="FbTest()[pri:0, instance:com.rameshsoft.auto.scripts.GmailTest@55536d9e]" started-at="2019-12-31T06:26:28Z" name="FbTest" finished-at="2019-12-31T06:26:32Z" duration-ms="4164" status="PASS">
+        <test-method status="PASS" signature="Testcase1()[pri:0, instance:com.rameshsoft.auto.scripts.GmailTest@3632be31]" name="Testcase1" duration-ms="6974" started-at="2020-08-16T15:47:23Z" finished-at="2020-08-16T15:47:30Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- FbTest -->
-        <test-method is-config="true" signature="endReport()[pri:0, instance:com.rameshsoft.auto.scripts.GmailTest@55536d9e]" started-at="2019-12-31T06:26:32Z" name="endReport" finished-at="2019-12-31T06:26:33Z" duration-ms="616" status="PASS">
+        </test-method> <!-- Testcase1 -->
+        <test-method status="PASS" signature="endReport()[pri:0, instance:com.rameshsoft.auto.scripts.GmailTest@3632be31]" name="endReport" is-config="true" duration-ms="763" started-at="2020-08-16T15:47:30Z" finished-at="2020-08-16T15:47:31Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- endReport -->
       </class> <!-- com.rameshsoft.auto.scripts.GmailTest -->
-    </test> <!-- Test -->
-  </suite> <!-- Suite -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>

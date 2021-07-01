@@ -21,13 +21,13 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 
 public class ExcelReader {
 	
-	private FileInputStream fip;
-	private Workbook wb;
-	private Sheet sheet;
-	private Row row;
-	private Cell cell;
-	private String cellValue;
-	private String data;
+	private static FileInputStream fip;
+	private static Workbook wb;
+	private static Sheet sheet;
+	private static Row row;
+	private static Cell cell;
+	private static String cellValue;
+	private static String data;
 	
 	public ExcelReader(String filePath) throws EncryptedDocumentException, IOException {
 		
@@ -44,6 +44,7 @@ public class ExcelReader {
 		 sheet = wb.getSheetAt(sheetIndex);
 		return sheet;
 	}
+	
 	public String getSingleData(String sheetName,int rowNum,int colNum) {
 		
 		sheet = getSheetFromWorkbook(sheetName);
@@ -187,7 +188,6 @@ public class ExcelReader {
 	     for(String str : tcNames) {
 	    	if(str.equalsIgnoreCase(tcName)) {
 	    		matchTcData = getSingleRowData(sheetName, rowMatch);
-	    		
 	    		for(int tcMatch = 1;tcMatch<headers.size();tcMatch++) {
 		    		tcData.put(headers.get(tcMatch),matchTcData.get(tcMatch));	
 		    	}

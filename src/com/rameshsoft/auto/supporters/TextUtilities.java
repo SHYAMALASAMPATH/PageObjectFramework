@@ -21,7 +21,7 @@ public class TextUtilities {
 	private static BufferedWriter bufferedWriter;
 	private static FileReader fileReader;
 	private static BufferedReader bufferedReader;
-	
+	private static String data;
 	
 	public TextUtilities(String filePath) throws IOException {
 		 file = new File(filePath);	
@@ -98,15 +98,13 @@ public class TextUtilities {
 		}
 	}
 	
-	public List writeData(List data) throws IOException {
+	public List<String> writeData(List<String> data) throws IOException {
 		Optional<BufferedWriter> op = Optional.ofNullable(bufferedWriter);
 		if(op.isPresent()) {
-			for(Object obj : data) {
-				String listData = (String) obj; 
-				bufferedWriter.write(listData);
+			for(String obj : data) {
+				bufferedWriter.write(obj);
 				bufferedWriter.newLine();
 			}
-			
 		}else {
 			System.out.println("BW IS POINTING TO NULL");
 		}
@@ -114,15 +112,12 @@ public class TextUtilities {
 		return data;
 	}
 	
-	public Set writeData(Set data) throws IOException {
+	public Set<String> writeData(Set<String> data) throws IOException {
 		Optional<BufferedWriter> op = Optional.ofNullable(bufferedWriter);
 		if(op.isPresent()) {
-			for(Object obj : data) {
-				String listData = (String) obj; 
-				bufferedWriter.write(listData);
+			for(String obj : data) {
+				bufferedWriter.write(obj);
 				bufferedWriter.newLine();
-				
-			
 			}
 		}else {
 			System.out.println("BW IS POINTING TO NULL");
@@ -132,7 +127,7 @@ public class TextUtilities {
 	}
 	
 	public String getData() throws IOException {
-		String data="";
+		data="";
 		Optional<BufferedReader> op = Optional.ofNullable(bufferedReader);
 		if(op.isPresent()) {
 			 data = bufferedReader.readLine();
@@ -170,8 +165,8 @@ public class TextUtilities {
 	public static void main(String[] args) throws IOException {
 		
 		TextUtilities t = new TextUtilities
-				       ("G:\\SELENIUM\\new selenium\\Framework7AMP\\selez.txt");
-		ArrayList<String> a = new ArrayList<String>();
+				       ("G:\\SeleniumFrameWorks\\InterviewPrograms\\testData\\divya2.txt");
+		/*ArrayList<String> a = new ArrayList<String>();
 		a.add("hello");
 		a.add("web");
 		a.add("tagname");
@@ -181,20 +176,11 @@ public class TextUtilities {
 		
 		System.out.println(t.getTotalDataUnique());
 		t.writeData(a);
-		System.out.println(t.getTotalData());
+		System.out.println(t.getTotalData());*/
 		
+		String str = t.getData();
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+		System.out.println(str);
 		
 		
 		
