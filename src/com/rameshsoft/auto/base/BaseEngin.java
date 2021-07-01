@@ -1,16 +1,20 @@
 package com.rameshsoft.auto.base;
 
 import java.io.IOException;
+
+
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
-import org.apache.poi.xssf.model.Themes;
+
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.ITestResult;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
@@ -19,75 +23,84 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
-import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.rameshsoft.auto.supporters.PropertiesUtilities;
+import com.rameshsoft.auto.supporters.TextUtilities;
 import com.rameshsoft.auto.testdata.ExcelReader;
 import com.rameshsoft.auto.utilities.FilePaths;
 import com.rameshsoft.auto.utilities.PojoSupporters;
+import com.rameshsoft.auto.utilities.ScreenShotUtility;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
+
 public class BaseEngin  {
 	
 	private static RemoteWebDriver driver;
 	private static String tcName ;
-	private static String curDir = System.getProperty("user.dir");
+	private static String curDir;
 	private static ExcelReader excelData ;
 	private static PropertiesUtilities configData,objRep;
 	private static ExtentReports extent;
 	private static ExtentTest extentTest;
+	private static TextUtilities txtData;
 	
 	@Parameters("browser")
 	@BeforeSuite
 	static public void openBrowser(@Optional("chrome")String browser) throws IOException {
+		curDir     = System.getProperty("user.dir");
 		
 		excelData  = PojoSupporters.getExcelData();
 		configData = PojoSupporters.getConfigData();
 		   objRep  = PojoSupporters.getObjRepo();
+		   txtData = PojoSupporters.getTxtData();
 		   
 		if(browser.equalsIgnoreCase("chrome")){
-			ChromeOptions co = new ChromeOptions();
-			co.addArguments("disable-infobars");
+			/*ChromeOptions co = new ChromeOptions();
+			co.addArguments("disable-infobars"); 
 			co.addArguments("--start-maximized");
             co.addArguments("--disable-web-security","--new-window","--ignore-certificate-errors","--disable-extensions");
 			HashMap<String, Object> prefs = new HashMap<String, Object>();
 			prefs.put("credentials_enable_service", false);
 			prefs.put("profile.password_manager_enabled", false);
 			co.setExperimentalOption("prefs", prefs);
-			co.setCapability(CapabilityType.ForSeleniumServer.ENSURING_CLEAN_SESSION, true);
-			driver = new ChromeDriver(co);
-			DriverIniti();
+			co.setCapability(CapabilityType.ForSeleniumServer.ENSURING_CLEAN_SESSION, true);*/
+         	System.setProperty("webdriver.chrome.driver", "G:\\SELENIUM\\new selenium\\Framework7AMP\\Drivers\\chromedriver.exe");
+			
+			driver = new ChromeDriver();
+			driverIniti();
 		}
 		else if(browser.equalsIgnoreCase("firefox")) {
+			System.setProperty("webdriver.gecko.driver", "G:\\SELENIUM\\new selenium\\Framework7AMP\\Drivers\\geckodriver.exe");
+			
 			driver = new FirefoxDriver();
-			DriverIniti();
+			driverIniti();
 		}
 		else if(browser.equalsIgnoreCase("IE")) {
 			driver = new InternetExplorerDriver();
-			DriverIniti();
+			driverIniti();
 		}
 	}
 	public static ExtentTest getExtentTest() {
 		return extentTest;
 	}
+	
 	public static ExtentReports getExtent() {
 		return extent;
 	}
 	
 	@BeforeTest
-	public void initextnt() {
+	public void initExtentReports() {
 		extent = new ExtentReports(FilePaths.reportPath);
 		extent.addSystemInfo("Release Name", "Release 21");
 		extent.addSystemInfo("Cycle Name", "Cycle 1");
 		extent.addSystemInfo("IP Address", "192.168.137.1");
 		//extentTest.log(LogStatus.INFO, "FilePaths.reportPath: "+FilePaths.reportPath);
 		//System.out.println("FilePaths.reportPath: "+FilePaths.reportPath);
-		
 	}
 	
 	@BeforeMethod
 	public void startRepo(Method method) {
-		tcName = method.getName();
+	    tcName = method.getName();
 		System.out.println("Current method is :"+tcName);
 		extentTest = extent.startTest(tcName);
 		extentTest.log(LogStatus.PASS, "test case pass");
@@ -107,6 +120,9 @@ public class BaseEngin  {
 		return excelData;
 	}
 
+	public static TextUtilities getTxtData() {
+		return txtData;
+	}
 	public static PropertiesUtilities getConfigData() {
 		return configData;
 	}
@@ -118,7 +134,7 @@ public class BaseEngin  {
 	/**
 	 * The  Method will do driver initializations 
 	 */
-	static private void DriverIniti() {
+	static private void driverIniti() {
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
@@ -150,26 +166,27 @@ public class BaseEngin  {
 	public static String getCurDir() {
 		return curDir;
 	}
-	/*
-	@AfterMethod
+	
+	/*@AfterMethod
 	public void aftermethod(ITestResult result) throws IOException {
 	if(result.getStatus()==ITestResult.SUCCESS) {
-		//System.out.println("The Current test case is :"+getTcName()+ExtentColor.GREEN);
-		extentTest.log(LogStatus.PASS, "The Current test case is "+tcName+ExtentColor.GREEN);
+		System.out.println("The Current test case is :"+getTcName());
+		//extentTest.log(LogStatus.PASS, "The Current test case is "+tcName+ExtentColor.GREEN);
 		
 	}else if(result.getStatus()==ITestResult.FAILURE) {
-		System.out.println("The test case is:: "+result.getThrowable()+ExtentColor.RED);
-		extentTest.log(LogStatus.FAIL, "The test case is::"+tcName+ExtentColor.RED);
+		System.out.println("The test case is:: "+result.getThrowable());
+	//	extentTest.log(LogStatus.FAIL, "The test case is::"+tcName+ExtentColor.RED);
 		extentTest.log(LogStatus.FAIL, result.getThrowable());
-		String imageSh = TakeScreenshot.screenShot();
+		String imageSh = ScreenShotUtility.screenShot();
 		extentTest.addScreenCapture(imageSh);
 		
-	}else if(result.getStatus()==ITestResult.SKIP) {
-		System.out.println("Current test case is:: "+result.getThrowable()+ExtentColor.YELLOW);
-		extentTest.log(LogStatus.SKIP, "The test case is::"+tcName+ExtentColor.YELLOW);
+	}else if(result.getStatus()==ITestResult.SKIP){
+		System.out.println("Current test case is:: "+result.getThrowable());
+	//	extentTest.log(LogStatus.SKIP, "The test case is::"+tcName+ExtentColor.YELLOW);
 		extentTest.log(LogStatus.SKIP, result.getThrowable());
-		String imageSh = TakeScreenshot.screenShot();
+		String imageSh = ScreenShotUtility.screenShot();
 		extentTest.addScreenCapture(imageSh);
-	}
+	 }
    }*/
 }
+

@@ -14,6 +14,7 @@ public class FlipKart_Mobile_Page extends ActionEngin{
 	
 	public static void getMoveMI() {
 		Actions actions = new  Actions(getDriver());
+		waitForElement(MoveMI, 5);
 		checkElementVisibility(MoveMI);
 		actions.moveToElement(MoveMI).build().perform();
 	}
@@ -22,10 +23,12 @@ public class FlipKart_Mobile_Page extends ActionEngin{
 	private static WebElement miMobile ;
 	
 	public static void getMiMobile() {
+		waitForElement(miMobile, 5);
 		checkElementVisibility(miMobile);
 		miMobile.click();
 	}
 
+	
 	static {
 		PageFactory.initElements(getDriver(),FlipKart_Mobile_Page.class );
 	 }

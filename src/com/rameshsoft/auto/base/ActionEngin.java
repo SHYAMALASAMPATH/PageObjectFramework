@@ -21,15 +21,14 @@ abstract public class ActionEngin extends BaseEngin{
 	private static WebElement webelement;
 	private static List<WebElement> webelements;
 	
-	public String enterURL(String url, String how) {
+	public static String enterURL(String url, String how) {
 		if(how.equals("driver")) {
 			getDriver().get(url);
 		}else if(how.equalsIgnoreCase("navigate")) {
 			getDriver().navigate().to(url);
 		}
 		return how;
-	}
-		
+	}	
 	
 	public static WebElement identifyElement(String locMech,String locValue) {
 			
@@ -249,7 +248,15 @@ abstract public class ActionEngin extends BaseEngin{
 				}
 			}
 		}
-		
-		
 	}	
+	
+	
+	public static WebElement waitForElement(WebElement element, int timeTOWait) {
+		
+		WebDriverWait wait = new WebDriverWait(getDriver(), timeTOWait);
+		wait.pollingEvery(Duration.ofMillis(200));
+		wait.until(ExpectedConditions.visibilityOf(element));
+		
+		return element;
+	}
  }

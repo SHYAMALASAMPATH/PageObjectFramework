@@ -6,22 +6,29 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-10">
+	<classpathentry kind="con" path="org.testng.TESTNG_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Users/USER/Desktop/JArs Extent/extentreports-2.41.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/USER/Desktop/JArs Extent/freemarker-2.3.23.jar"/>
+	<classpathentry kind="lib" path="C:/Users/USER/Desktop/JArs Extent/jsoup-1.8.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/USER/Desktop/JArs Extent/mongodb-driver-3.0.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/USER/Desktop/JArs Extent/mongodb-driver-core-3.0.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/USER/Desktop/JArs Extent/sqlite-jdbc-3.8.11.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/USER/Desktop/JArs Extent/freemarker-2.2.8/lib/freemarker.jar"/>
+	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.testng.TESTNG_CONTAINER"/>
-	<classpathentry kind="lib" path="/AA/LIbraries/client-combined-3.14.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/USER/Desktop/JARS SELENIUM/selenium jars and windows softwares/client-combined-3.141.59.jar"/>
-	<classpathentry kind="lib" path="C:/Users/USER/Desktop/JARS SELENIUM/selenium jars and windows softwares/client-combined-3.141.59-sources.jar"/>
-	<classpathentry kind="lib" path="C:/Users/USER/Desktop/JARS SELENIUM/selenium jars and windows softwares/selenium-server-standalone-3.141.59.jar"/>
-	<classpathentry kind="lib" path="C:/Users/USER/Desktop/JARS SELENIUM/testng-6.7.jar"/>
 	<classpathentry kind="lib" path="C:/Users/USER/Desktop/JARS SELENIUM/commons-io-2.6/commons-io-2.6.jar"/>
 	<classpathentry kind="lib" path="C:/Users/USER/Desktop/JARS SELENIUM/commons-io-2.6/commons-io-2.6-javadoc.jar"/>
 	<classpathentry kind="lib" path="C:/Users/USER/Desktop/JARS SELENIUM/commons-io-2.6/commons-io-2.6-sources.jar"/>
 	<classpathentry kind="lib" path="C:/Users/USER/Desktop/JARS SELENIUM/commons-io-2.6/commons-io-2.6-tests.jar"/>
 	<classpathentry kind="lib" path="C:/Users/USER/Desktop/JARS SELENIUM/commons-io-2.6/commons-io-2.6-test-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/USER/Desktop/JARS SELENIUM/libs/byte-buddy-1.8.15.jar"/>
+	<classpathentry kind="lib" path="C:/Users/USER/Desktop/JARS SELENIUM/libs/commons-exec-1.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/USER/Desktop/JARS SELENIUM/libs/guava-25.0-jre.jar"/>
+	<classpathentry kind="lib" path="C:/Users/USER/Desktop/JARS SELENIUM/libs/okhttp-3.11.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/USER/Desktop/JARS SELENIUM/libs/okio-1.14.0.jar"/>
 	<classpathentry kind="lib" path="C:/Users/USER/Desktop/JARS SELENIUM/poi-4.0.1/poi-4.0.1.jar"/>
 	<classpathentry kind="lib" path="C:/Users/USER/Desktop/JARS SELENIUM/poi-4.0.1/poi-examples-4.0.1.jar"/>
 	<classpathentry kind="lib" path="C:/Users/USER/Desktop/JARS SELENIUM/poi-4.0.1/poi-excelant-4.0.1.jar"/>
@@ -39,34 +46,12 @@
 	<classpathentry kind="lib" path="C:/Users/USER/Desktop/JARS SELENIUM/poi-4.0.1/lib/jaxb-api-2.3.0.jar"/>
 	<classpathentry kind="lib" path="C:/Users/USER/Desktop/JARS SELENIUM/poi-4.0.1/lib/jaxb-core-2.3.0.1.jar"/>
 	<classpathentry kind="lib" path="C:/Users/USER/Desktop/JARS SELENIUM/poi-4.0.1/lib/jaxb-impl-2.3.0.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/USER/Desktop/JARS SELENIUM/poi-4.0.1/lib/junit-4.12.jar"/>
 	<classpathentry kind="lib" path="C:/Users/USER/Desktop/JARS SELENIUM/poi-4.0.1/lib/log4j-1.2.17.jar"/>
-	<classpathentry kind="lib" path="C:/Users/USER/Desktop/JARS SELENIUM/tesng extent  reports/extent reports/bson-3.3.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/USER/Desktop/JARS SELENIUM/tesng extent  reports/extent reports/commons-codec-1.9.jar"/>
-	<classpathentry kind="lib" path="C:/Users/USER/Desktop/JARS SELENIUM/tesng extent  reports/extent reports/commons-logging-1.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/USER/Desktop/JARS SELENIUM/tesng extent  reports/extent reports/freemarker-2.3.23.jar"/>
-	<classpathentry kind="lib" path="C:/Users/USER/Desktop/JARS SELENIUM/tesng extent  reports/extent reports/gson-2.8.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/USER/Desktop/JARS SELENIUM/tesng extent  reports/extent reports/httpclient-4.5.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/USER/Desktop/JARS SELENIUM/tesng extent  reports/extent reports/httpcore-4.4.4.jar"/>
-	<classpathentry kind="lib" path="C:/Users/USER/Desktop/JARS SELENIUM/tesng extent  reports/extent reports/httpmime-4.5.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/USER/Desktop/JARS SELENIUM/tesng extent  reports/extent reports/jsoup-1.9.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/USER/Desktop/JARS SELENIUM/tesng extent  reports/extent reports/mongodb-driver-3.3.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/USER/Desktop/JARS SELENIUM/tesng extent  reports/extent reports/mongodb-driver-core-3.3.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/USER/Downloads/extentreports-2.40.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/USER/Desktop/JARS SELENIUM/extentreports-2.40.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/USER/Desktop/JArs Extent/bson-3.0.4.jar"/>
-	<classpathentry kind="lib" path="C:/Users/USER/Desktop/JArs Extent/extentreports-2.41.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/USER/Desktop/JArs Extent/freemarker-2.3.23.jar"/>
-	<classpathentry kind="lib" path="C:/Users/USER/Desktop/JArs Extent/jsoup-1.8.3.jar"/>
-	<classpathentry kind="lib" path="C:/Users/USER/Desktop/JArs Extent/mongodb-driver-3.0.4.jar"/>
-	<classpathentry kind="lib" path="C:/Users/USER/Desktop/JArs Extent/mongodb-driver-core-3.0.4.jar"/>
-	<classpathentry kind="lib" path="C:/Users/USER/Desktop/JArs Extent/sqlite-jdbc-3.8.11.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/USER/Desktop/JArs Extent/freemarker-2.2.8/lib/freemarker.jar"/>
-	<classpathentry kind="lib" path="C:/Users/USER/Desktop/JARS SELENIUM/tesng extent  reports/extent reports/extentreports-3.1.2.jar"/>
-	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
-		<attributes>
-			<attribute name="maven.pomderived" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="/AA/LIbraries/extentreports-4.0.9.jar"/>
+	<classpathentry kind="lib" path="C:/Users/USER/Desktop/JARS SELENIUM/selenium jars and windows softwares/client-combined-3.141.59.jar"/>
+	<classpathentry kind="lib" path="C:/Users/USER/Desktop/JARS SELENIUM/selenium jars and windows softwares/client-combined-3.141.59-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/USER/Desktop/JARS SELENIUM/selenium jars and windows softwares/selenium-server-standalone-3.141.59.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.8.0_192"/>
+	<classpathentry kind="lib" path="C:/Users/USER/Desktop/JARS SELENIUM/extentreports-3.0.0.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

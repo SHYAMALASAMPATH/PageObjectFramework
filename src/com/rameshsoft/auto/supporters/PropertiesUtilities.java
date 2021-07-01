@@ -17,8 +17,8 @@ public class PropertiesUtilities {
 	private FileInputStream fip;
 	private Properties prop;
 	private String value; 
+	
 	public PropertiesUtilities(String filePath) throws IOException {
-	     //super();
 		fip = new FileInputStream(filePath);
 		prop = new Properties();
 		prop.load(fip);
@@ -112,7 +112,7 @@ public class PropertiesUtilities {
 				propData.put(key.toString(), keyvalue);
 				
 			}
-		}  catch (IOException e) {
+		}catch (IOException e) {
 			System.out.println("unable to read the property file."+propData);
 			System.exit(0);
 		}
@@ -126,7 +126,4 @@ public class PropertiesUtilities {
 	           String str = pu.getPropertyValue("un_name", "value is null");
 	           System.out.println(str);
 	}
-	
-	
-
 }
